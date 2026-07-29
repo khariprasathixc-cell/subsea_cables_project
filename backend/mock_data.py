@@ -56,7 +56,7 @@ def generate_mock_data():
                 if timestamp <= 15:
                     progress = (timestamp - 11) / 4  # 0 to 1
                     target_speed = 15 - progress * 12  # 15 down to 3
-                    speed = max(target_speed, speed - random.uniform(1.0, 2.0))
+                    speed = min(target_speed, speed - random.uniform(1.0, 2.0))
                 else:
                     speed = max(1.5, speed - random.uniform(0.5, 1.0))
                 
