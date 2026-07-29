@@ -1,1 +1,12 @@
-[]
+[
+  {
+    "ship_id": "S3",
+    "timestamp": 16,
+    "message": "Possible anchor drag detected: speed dropped below 5 knots inside cable corridor"
+  },
+  {
+    "ship_id": "S4",
+    "timestamp": 16,
+    "message": "Possible anchor drag detected: speed dropped below 5 knots inside cable corridor"
+  }
+]
