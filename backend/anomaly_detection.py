@@ -22,6 +22,37 @@ def load_mock_data(filepath):
         return json.load(f)
 
 
+def load_ml_scores(filepath):
+    """
+    Load ML anomaly scores from JSON file.
+    
+    Args:
+        filepath (str): Path to the JSON file
+    
+    Returns:
+        list: List of ML score dictionaries
+    """
+    with open(filepath, 'r') as f:
+        return json.load(f)
+
+
+def create_ml_score_lookup(ml_scores):
+    """
+    Create a lookup dictionary for ML scores keyed by ship_id and timestamp.
+    
+    Args:
+        ml_scores (list): List of ML score dictionaries
+    
+    Returns:
+        dict: Lookup dictionary with (ship_id, timestamp) as key
+    """
+    lookup = {}
+    for score_entry in ml_scores:
+        key = (score_entry['ship_id'], score_entry['timestamp'])
+        lookup[key] = score_entry['anomaly_score']
+    return lookup
+
+
 def group_by_ship(data):
     """
     Group data by ship_id and sort by timestamp.
@@ -46,13 +77,14 @@ def group_by_ship(data):
     return ships
 
 
-def detect_anomalies(ships_data):
+def detect_anomalies(ships_data, ml_score_lookup=None):
     """
     Detect anchor drag events by checking for consecutive low-speed
-    occurrences inside the corridor zone.
+    occurrences inside the corridor zone. Optionally adds ML confidence scores.
     
     Args:
         ships_data (dict): Dictionary of ship data grouped by ship_id
+        ml_score_lookup (dict): Optional lookup dictionary for ML scores
     
     Returns:
         list: List of alert dictionaries
@@ -75,11 +107,19 @@ def detect_anomalies(ships_data):
                 
                 # Trigger alert on the second consecutive occurrence
                 if consecutive_count >= 2 and not alert_triggered:
-                    alerts.append({
+                    # Look up ML confidence score if available
+                    confidence_score = None
+                    if ml_score_lookup:
+                        key = (ship_id, timestamp)
+                        confidence_score = ml_score_lookup.get(key, None)
+                    
+                    alert = {
                         "ship_id": ship_id,
                         "timestamp": timestamp,
-                        "message": "Possible anchor drag detected: speed dropped below 5 knots inside cable corridor"
-                    })
+                        "message": "Possible anchor drag detected: speed dropped below 5 knots inside cable corridor",
+                        "confidence_score": confidence_score
+                    }
+                    alerts.append(alert)
                     alert_triggered = True
             else:
                 # Reset counter if conditions are not met
@@ -102,7 +142,7 @@ def save_alerts(alerts, filepath):
 
 def main():
     """
-    Main function to run the anomaly detection pipeline.
+    Main function to run the anomaly detection pipeline with ML integration.
     """
     # Load mock data
     data = load_mock_data('backend/mock_data.json')
@@ -110,8 +150,18 @@ def main():
     # Group by ship and sort by timestamp
     ships_data = group_by_ship(data)
     
-    # Detect anomalies
-    alerts = detect_anomalies(ships_data)
+    # Load ML scores if available
+    ml_score_lookup = None
+    ml_scores = []
+    try:
+        ml_scores = load_ml_scores('backend/ml_scores.json')
+        ml_score_lookup = create_ml_score_lookup(ml_scores)
+        print("ML scores loaded successfully.")
+    except FileNotFoundError:
+        print("Warning: ml_scores.json not found. Running without ML confidence scores.")
+    
+    # Detect anomalies (with ML scores if available)
+    alerts = detect_anomalies(ships_data, ml_score_lookup)
     
     # Save alerts
     save_alerts(alerts, 'backend/alerts.json')
@@ -120,13 +170,30 @@ def main():
     ships_checked = len(ships_data)
     alerts_generated = len(alerts)
     alert_ships = [alert['ship_id'] for alert in alerts]
+    alerts_with_confidence = sum(1 for alert in alerts if alert['confidence_score'] is not None)
     
+    print(f"\nAnomaly Detection Summary:")
     print(f"Ships checked: {ships_checked}")
     print(f"Alerts generated: {alerts_generated}")
     if alert_ships:
         print(f"Ships with alerts: {', '.join(alert_ships)}")
     else:
         print("Ships with alerts: None")
+    
+    # Print ML statistics if scores were loaded
+    if ml_scores:
+        rows_scored = len(ml_scores)
+        scores = [s['anomaly_score'] for s in ml_scores]
+        min_score = min(scores)
+        max_score = max(scores)
+        avg_score = sum(scores) / len(scores)
+        
+        print(f"\nML Model Statistics:")
+        print(f"Rows scored by ML: {rows_scored}")
+        print(f"Min anomaly_score: {min_score:.1f}")
+        print(f"Max anomaly_score: {max_score:.1f}")
+        print(f"Avg anomaly_score: {avg_score:.1f}")
+        print(f"Alerts with confidence_score: {alerts_with_confidence}")
 
 
 if __name__ == "__main__":
