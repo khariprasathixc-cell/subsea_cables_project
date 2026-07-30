@@ -2,11 +2,13 @@
   {
     "ship_id": "S3",
     "timestamp": 16,
-    "message": "Possible anchor drag detected: speed dropped below 5 knots inside cable corridor"
+    "message": "Possible anchor drag detected: speed dropped below 5 knots inside cable corridor",
+    "confidence_score": 82.2
   },
   {
     "ship_id": "S4",
     "timestamp": 16,
-    "message": "Possible anchor drag detected: speed dropped below 5 knots inside cable corridor"
+    "message": "Possible anchor drag detected: speed dropped below 5 knots inside cable corridor",
+    "confidence_score": 82.2
   }
 ]
