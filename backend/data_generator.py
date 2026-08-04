@@ -5,6 +5,7 @@ Generates realistic ship trajectory data with normal, anomaly, and near-miss beh
 
 import random
 import json
+import os
 
 # Corridor boundaries (must match geofence.py exactly)
 CORRIDOR_LAT_MIN = 13.00
@@ -104,9 +105,9 @@ def generate_anomaly_ship(ship_id, vessel_type):
     
     rows = []
     
-    # Start position outside corridor (west of corridor)
+    # Start position outside corridor (west of corridor, further away)
     lat = 13.05 + random.uniform(-0.02, 0.02)
-    lon = 80.15 + random.uniform(-0.02, 0.02)
+    lon = 80.10 + random.uniform(-0.02, 0.02)  # Start further west
     
     heading = random.randint(70, 100)
     base_speed = random.uniform(14, 18)
@@ -118,22 +119,26 @@ def generate_anomaly_ship(ship_id, vessel_type):
             speed = base_speed + random.uniform(-0.5, 0.5)
             label = 'normal'
             
-            # Normal movement
+            # Normal movement - but ensure we stay OUTSIDE corridor
             lat += random.uniform(-0.005, 0.005)
-            lon += random.uniform(0.005, 0.015)
+            lon += random.uniform(0.003, 0.008)  # Smaller eastward movement
+            
+            # Force staying outside corridor during normal phase
+            if lon >= CORRIDOR_LON_MIN - 0.01:
+                lon = CORRIDOR_LON_MIN - 0.02 - random.uniform(0, 0.01)
             
         else:
             # Anomaly behavior: speed drops, drifts into corridor
             # Speed drops gradually to under 5 by timestamp 15
             speed_reduction = (timestamp - 10) / 5  # 0.2 to 1.0
-            speed = max(1.5, base_speed * (1 - speed_reduction * 0.7))
+            speed = max(1.5, base_speed * (1 - speed_reduction * 0.8))  # More aggressive reduction
             
             # Minimal heading changes (drifting)
             heading += random.uniform(-0.5, 0.5)
             
             # Drift into corridor
             lat += random.uniform(-0.002, 0.002)
-            lon += random.uniform(0.005, 0.01)
+            lon += random.uniform(0.008, 0.015)  # Larger eastward movement to enter
             
             # Ensure we enter corridor by timestamp 12-13
             if timestamp >= 12:
@@ -212,7 +217,7 @@ def generate_near_miss_slow_ship(ship_id, vessel_type):
     lat = CORRIDOR_LAT_MIN - 0.015  # Just outside, within ~0.02 degrees
     lon = 80.27 + random.uniform(-0.01, 0.01)
     
-    heading = random.randint(340, 20)
+    heading = random.choice([random.randint(340, 359), random.randint(0, 20)])
     base_speed = random.uniform(14, 18)
     
     for timestamp in range(1, 21):
@@ -283,25 +288,6 @@ def print_summary(data):
     print(f"  - Near-miss ships: {', '.join(sorted(ship_categories['near_miss']))}")
     print("="*50 + "\n")
 
-def main():
-    """Main function to generate and save ship data."""
-    
-    print("Generating ship data...")
-    data = generate_ship_data()
-    
-    # Save to JSON file
-    output_path = 'data/ships_data.json'
-    with open(output_path, 'w') as f:
-        json.dump(data, f, indent=2)
-    
-    print(f"Data saved to {output_path}")
-    
-    # Print summary
-    print_summary(data)
-    
-    # Verify patterns
-    verify_patterns(data)
-
 def verify_patterns(data):
     """Verify that ships follow their intended patterns."""
     
@@ -351,6 +337,25 @@ def verify_patterns(data):
             print(f"    - {issue}")
     else:
         print("  All patterns verified successfully!")
+
+def main():
+    """Main function to generate and save ship data."""
+    
+    print("Generating ship data...")
+    data = generate_ship_data()
+    
+    # Save to JSON file
+    output_path = os.path.join('..', 'data', 'ships_data.json')
+    with open(output_path, 'w') as f:
+        json.dump(data, f, indent=2)
+    
+    print(f"Data saved to {output_path}")
+    
+    # Print summary
+    print_summary(data)
+    
+    # Verify patterns
+    verify_patterns(data)
 
 if __name__ == "__main__":
     main()
