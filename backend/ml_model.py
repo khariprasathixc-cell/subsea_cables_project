@@ -15,6 +15,9 @@ CORRIDOR_LAT_MAX = 13.10
 CORRIDOR_LON_MIN = 80.20
 CORRIDOR_LON_MAX = 80.35
 
+# Data source path
+DATA_SOURCE = "data/ships_data.json"
+
 
 def load_mock_data(filepath):
     """
@@ -197,7 +200,7 @@ def main():
     Main function to run the ML pipeline.
     """
     print("Loading mock data...")
-    data = load_mock_data('backend/mock_data.json')
+    data = load_mock_data(DATA_SOURCE)
     
     print("Engineering features...")
     features, metadata = engineer_features(data)

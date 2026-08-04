@@ -7,6 +7,9 @@ low speed inside the submarine cable corridor for consecutive timestamps.
 import json
 from geofence import is_in_corridor
 
+# Data source path
+DATA_SOURCE = "data/ships_data.json"
+
 
 def load_mock_data(filepath):
     """
@@ -145,7 +148,7 @@ def main():
     Main function to run the anomaly detection pipeline with ML integration.
     """
     # Load mock data
-    data = load_mock_data('backend/mock_data.json')
+    data = load_mock_data(DATA_SOURCE)
     
     # Group by ship and sort by timestamp
     ships_data = group_by_ship(data)
