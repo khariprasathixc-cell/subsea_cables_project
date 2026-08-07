@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SubseaGuard - Predictive AIS Geo-Fencing & Early Warning System</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="brand">
+                <h1>SubseaGuard</h1>
+                <p class="tagline">Predictive AIS Geo-Fencing & Early Warning System</p>
+            </div>
+            <div class="status-badge" id="statusBadge">
+                <span class="status-dot"></span>
+                <span class="status-text">Monitoring Active</span>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="map-container">
+            <div id="map"></div>
+        </div>
+
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>Alerts</h2>
+                <span class="alert-count" id="alertCount">0</span>
+            </div>
+            <div class="alerts-container" id="alertsContainer">
+                <!-- Alerts will be dynamically inserted here -->
+            </div>
+        </aside>
+    </main>
+
+    <footer class="controls">
+        <div class="controls-left">
+            <button id="playPauseBtn" class="btn btn-primary">
+                <span id="playIcon">▶</span> Play
+            </button>
+            <div class="speed-control">
+                <label for="speedSelect">Speed:</label>
+                <select id="speedSelect">
+                    <option value="2000">0.5x</option>
+                    <option value="1000" selected>1x</option>
+                    <option value="500">2x</option>
+                    <option value="250">4x</option>
+                </select>
+            </div>
+        </div>
+        <div class="controls-center">
+            <div class="scrubber-container">
+                <input type="range" id="timestampSlider" min="1" max="20" value="1" class="scrubber">
+                <div class="timestamp-display">
+                    <span id="currentTimestamp">1</span> / 20
+                </div>
+            </div>
+        </div>
+        <div class="controls-right">
+            <button id="resetBtn" class="btn btn-secondary">Reset</button>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

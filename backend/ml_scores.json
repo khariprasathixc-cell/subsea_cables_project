@@ -2,801 +2,801 @@
   {
     "ship_id": "S1",
     "timestamp": 1,
-    "anomaly_score": 20.8
+    "anomaly_score": 53.6
   },
   {
     "ship_id": "S1",
     "timestamp": 2,
-    "anomaly_score": 1.9
+    "anomaly_score": 44.6
   },
   {
     "ship_id": "S1",
     "timestamp": 3,
-    "anomaly_score": 3.3
+    "anomaly_score": 57.1
   },
   {
     "ship_id": "S1",
     "timestamp": 4,
+    "anomaly_score": 51.6
+  },
+  {
+    "ship_id": "S1",
+    "timestamp": 5,
+    "anomaly_score": 39.9
+  },
+  {
+    "ship_id": "S1",
+    "timestamp": 6,
+    "anomaly_score": 46.7
+  },
+  {
+    "ship_id": "S1",
+    "timestamp": 7,
+    "anomaly_score": 75.0
+  },
+  {
+    "ship_id": "S1",
+    "timestamp": 8,
+    "anomaly_score": 77.3
+  },
+  {
+    "ship_id": "S1",
+    "timestamp": 9,
+    "anomaly_score": 46.8
+  },
+  {
+    "ship_id": "S1",
+    "timestamp": 10,
+    "anomaly_score": 88.6
+  },
+  {
+    "ship_id": "S1",
+    "timestamp": 11,
+    "anomaly_score": 47.8
+  },
+  {
+    "ship_id": "S1",
+    "timestamp": 12,
+    "anomaly_score": 78.2
+  },
+  {
+    "ship_id": "S1",
+    "timestamp": 13,
+    "anomaly_score": 39.2
+  },
+  {
+    "ship_id": "S1",
+    "timestamp": 14,
+    "anomaly_score": 36.3
+  },
+  {
+    "ship_id": "S1",
+    "timestamp": 15,
+    "anomaly_score": 72.8
+  },
+  {
+    "ship_id": "S1",
+    "timestamp": 16,
+    "anomaly_score": 61.5
+  },
+  {
+    "ship_id": "S1",
+    "timestamp": 17,
+    "anomaly_score": 60.0
+  },
+  {
+    "ship_id": "S1",
+    "timestamp": 18,
+    "anomaly_score": 54.5
+  },
+  {
+    "ship_id": "S1",
+    "timestamp": 19,
+    "anomaly_score": 56.6
+  },
+  {
+    "ship_id": "S1",
+    "timestamp": 20,
+    "anomaly_score": 73.5
+  },
+  {
+    "ship_id": "S2",
+    "timestamp": 1,
+    "anomaly_score": 30.7
+  },
+  {
+    "ship_id": "S2",
+    "timestamp": 2,
+    "anomaly_score": 11.3
+  },
+  {
+    "ship_id": "S2",
+    "timestamp": 3,
+    "anomaly_score": 10.3
+  },
+  {
+    "ship_id": "S2",
+    "timestamp": 4,
+    "anomaly_score": 10.4
+  },
+  {
+    "ship_id": "S2",
+    "timestamp": 5,
+    "anomaly_score": 9.2
+  },
+  {
+    "ship_id": "S2",
+    "timestamp": 6,
+    "anomaly_score": 11.8
+  },
+  {
+    "ship_id": "S2",
+    "timestamp": 7,
+    "anomaly_score": 31.7
+  },
+  {
+    "ship_id": "S2",
+    "timestamp": 8,
+    "anomaly_score": 42.4
+  },
+  {
+    "ship_id": "S2",
+    "timestamp": 9,
+    "anomaly_score": 16.3
+  },
+  {
+    "ship_id": "S2",
+    "timestamp": 10,
+    "anomaly_score": 72.6
+  },
+  {
+    "ship_id": "S2",
+    "timestamp": 11,
+    "anomaly_score": 16.6
+  },
+  {
+    "ship_id": "S2",
+    "timestamp": 12,
+    "anomaly_score": 29.3
+  },
+  {
+    "ship_id": "S2",
+    "timestamp": 13,
+    "anomaly_score": 20.0
+  },
+  {
+    "ship_id": "S2",
+    "timestamp": 14,
+    "anomaly_score": 29.5
+  },
+  {
+    "ship_id": "S2",
+    "timestamp": 15,
+    "anomaly_score": 34.0
+  },
+  {
+    "ship_id": "S2",
+    "timestamp": 16,
+    "anomaly_score": 60.3
+  },
+  {
+    "ship_id": "S2",
+    "timestamp": 17,
+    "anomaly_score": 61.6
+  },
+  {
+    "ship_id": "S2",
+    "timestamp": 18,
+    "anomaly_score": 42.2
+  },
+  {
+    "ship_id": "S2",
+    "timestamp": 19,
+    "anomaly_score": 64.7
+  },
+  {
+    "ship_id": "S2",
+    "timestamp": 20,
+    "anomaly_score": 61.5
+  },
+  {
+    "ship_id": "S3",
+    "timestamp": 1,
+    "anomaly_score": 38.4
+  },
+  {
+    "ship_id": "S3",
+    "timestamp": 2,
+    "anomaly_score": 34.6
+  },
+  {
+    "ship_id": "S3",
+    "timestamp": 3,
+    "anomaly_score": 61.0
+  },
+  {
+    "ship_id": "S3",
+    "timestamp": 4,
+    "anomaly_score": 61.6
+  },
+  {
+    "ship_id": "S3",
+    "timestamp": 5,
+    "anomaly_score": 31.7
+  },
+  {
+    "ship_id": "S3",
+    "timestamp": 6,
+    "anomaly_score": 42.6
+  },
+  {
+    "ship_id": "S3",
+    "timestamp": 7,
+    "anomaly_score": 31.7
+  },
+  {
+    "ship_id": "S3",
+    "timestamp": 8,
+    "anomaly_score": 36.4
+  },
+  {
+    "ship_id": "S3",
+    "timestamp": 9,
+    "anomaly_score": 35.5
+  },
+  {
+    "ship_id": "S3",
+    "timestamp": 10,
+    "anomaly_score": 25.1
+  },
+  {
+    "ship_id": "S3",
+    "timestamp": 11,
+    "anomaly_score": 32.7
+  },
+  {
+    "ship_id": "S3",
+    "timestamp": 12,
+    "anomaly_score": 53.6
+  },
+  {
+    "ship_id": "S3",
+    "timestamp": 13,
+    "anomaly_score": 49.7
+  },
+  {
+    "ship_id": "S3",
+    "timestamp": 14,
+    "anomaly_score": 20.5
+  },
+  {
+    "ship_id": "S3",
+    "timestamp": 15,
+    "anomaly_score": 22.8
+  },
+  {
+    "ship_id": "S3",
+    "timestamp": 16,
     "anomaly_score": 15.0
   },
   {
-    "ship_id": "S1",
-    "timestamp": 5,
-    "anomaly_score": 16.4
-  },
-  {
-    "ship_id": "S1",
-    "timestamp": 6,
-    "anomaly_score": 10.0
-  },
-  {
-    "ship_id": "S1",
-    "timestamp": 7,
-    "anomaly_score": 0.5
-  },
-  {
-    "ship_id": "S1",
-    "timestamp": 8,
-    "anomaly_score": 18.8
-  },
-  {
-    "ship_id": "S1",
-    "timestamp": 9,
-    "anomaly_score": 13.5
-  },
-  {
-    "ship_id": "S1",
-    "timestamp": 10,
-    "anomaly_score": 3.5
-  },
-  {
-    "ship_id": "S1",
-    "timestamp": 11,
-    "anomaly_score": 23.6
-  },
-  {
-    "ship_id": "S1",
-    "timestamp": 12,
-    "anomaly_score": 12.1
-  },
-  {
-    "ship_id": "S1",
-    "timestamp": 13,
-    "anomaly_score": 23.7
-  },
-  {
-    "ship_id": "S1",
-    "timestamp": 14,
-    "anomaly_score": 3.6
-  },
-  {
-    "ship_id": "S1",
-    "timestamp": 15,
-    "anomaly_score": 30.6
-  },
-  {
-    "ship_id": "S1",
-    "timestamp": 16,
-    "anomaly_score": 2.3
-  },
-  {
-    "ship_id": "S1",
-    "timestamp": 17,
-    "anomaly_score": 6.4
-  },
-  {
-    "ship_id": "S1",
-    "timestamp": 18,
-    "anomaly_score": 8.2
-  },
-  {
-    "ship_id": "S1",
-    "timestamp": 19,
-    "anomaly_score": 11.0
-  },
-  {
-    "ship_id": "S1",
-    "timestamp": 20,
-    "anomaly_score": 16.1
-  },
-  {
-    "ship_id": "S2",
-    "timestamp": 1,
-    "anomaly_score": 6.4
-  },
-  {
-    "ship_id": "S2",
-    "timestamp": 2,
-    "anomaly_score": 73.0
-  },
-  {
-    "ship_id": "S2",
-    "timestamp": 3,
-    "anomaly_score": 1.6
-  },
-  {
-    "ship_id": "S2",
-    "timestamp": 4,
-    "anomaly_score": 1.7
-  },
-  {
-    "ship_id": "S2",
-    "timestamp": 5,
-    "anomaly_score": 4.8
-  },
-  {
-    "ship_id": "S2",
-    "timestamp": 6,
-    "anomaly_score": 5.0
-  },
-  {
-    "ship_id": "S2",
-    "timestamp": 7,
-    "anomaly_score": 3.1
-  },
-  {
-    "ship_id": "S2",
-    "timestamp": 8,
-    "anomaly_score": 4.8
-  },
-  {
-    "ship_id": "S2",
-    "timestamp": 9,
-    "anomaly_score": 1.7
-  },
-  {
-    "ship_id": "S2",
-    "timestamp": 10,
-    "anomaly_score": 0.6
-  },
-  {
-    "ship_id": "S2",
-    "timestamp": 11,
-    "anomaly_score": 75.3
-  },
-  {
-    "ship_id": "S2",
-    "timestamp": 12,
-    "anomaly_score": 6.0
-  },
-  {
-    "ship_id": "S2",
-    "timestamp": 13,
-    "anomaly_score": 8.2
-  },
-  {
-    "ship_id": "S2",
-    "timestamp": 14,
-    "anomaly_score": 1.9
-  },
-  {
-    "ship_id": "S2",
-    "timestamp": 15,
-    "anomaly_score": 8.8
-  },
-  {
-    "ship_id": "S2",
-    "timestamp": 16,
-    "anomaly_score": 2.8
-  },
-  {
-    "ship_id": "S2",
-    "timestamp": 17,
-    "anomaly_score": 17.8
-  },
-  {
-    "ship_id": "S2",
-    "timestamp": 18,
-    "anomaly_score": 89.0
-  },
-  {
-    "ship_id": "S2",
-    "timestamp": 19,
-    "anomaly_score": 7.0
-  },
-  {
-    "ship_id": "S2",
-    "timestamp": 20,
-    "anomaly_score": 4.8
-  },
-  {
-    "ship_id": "S3",
-    "timestamp": 1,
-    "anomaly_score": 16.8
-  },
-  {
-    "ship_id": "S3",
-    "timestamp": 2,
-    "anomaly_score": 13.6
-  },
-  {
-    "ship_id": "S3",
-    "timestamp": 3,
-    "anomaly_score": 8.7
-  },
-  {
-    "ship_id": "S3",
-    "timestamp": 4,
-    "anomaly_score": 19.5
-  },
-  {
-    "ship_id": "S3",
-    "timestamp": 5,
-    "anomaly_score": 14.2
-  },
-  {
-    "ship_id": "S3",
-    "timestamp": 6,
-    "anomaly_score": 20.9
-  },
-  {
-    "ship_id": "S3",
-    "timestamp": 7,
-    "anomaly_score": 8.8
-  },
-  {
-    "ship_id": "S3",
-    "timestamp": 8,
-    "anomaly_score": 1.2
-  },
-  {
-    "ship_id": "S3",
-    "timestamp": 9,
-    "anomaly_score": 0.6
-  },
-  {
-    "ship_id": "S3",
-    "timestamp": 10,
-    "anomaly_score": 3.5
-  },
-  {
-    "ship_id": "S3",
-    "timestamp": 11,
-    "anomaly_score": 6.0
-  },
-  {
-    "ship_id": "S3",
-    "timestamp": 12,
-    "anomaly_score": 9.3
-  },
-  {
-    "ship_id": "S3",
-    "timestamp": 13,
-    "anomaly_score": 17.5
-  },
-  {
-    "ship_id": "S3",
-    "timestamp": 14,
-    "anomaly_score": 8.0
-  },
-  {
-    "ship_id": "S3",
-    "timestamp": 15,
-    "anomaly_score": 10.6
-  },
-  {
-    "ship_id": "S3",
-    "timestamp": 16,
-    "anomaly_score": 12.5
-  },
-  {
     "ship_id": "S3",
     "timestamp": 17,
-    "anomaly_score": 16.4
+    "anomaly_score": 26.0
   },
   {
     "ship_id": "S3",
     "timestamp": 18,
-    "anomaly_score": 24.0
+    "anomaly_score": 22.2
   },
   {
     "ship_id": "S3",
     "timestamp": 19,
-    "anomaly_score": 27.1
+    "anomaly_score": 28.5
   },
   {
     "ship_id": "S3",
     "timestamp": 20,
-    "anomaly_score": 19.3
+    "anomaly_score": 66.7
   },
   {
     "ship_id": "S4",
     "timestamp": 1,
-    "anomaly_score": 11.7
+    "anomaly_score": 30.9
   },
   {
     "ship_id": "S4",
     "timestamp": 2,
-    "anomaly_score": 17.5
-  },
-  {
-    "ship_id": "S4",
-    "timestamp": 3,
     "anomaly_score": 22.6
   },
   {
     "ship_id": "S4",
+    "timestamp": 3,
+    "anomaly_score": 29.2
+  },
+  {
+    "ship_id": "S4",
     "timestamp": 4,
-    "anomaly_score": 21.5
+    "anomaly_score": 74.5
   },
   {
     "ship_id": "S4",
     "timestamp": 5,
-    "anomaly_score": 21.0
+    "anomaly_score": 45.9
   },
   {
     "ship_id": "S4",
     "timestamp": 6,
-    "anomaly_score": 19.4
+    "anomaly_score": 58.1
   },
   {
     "ship_id": "S4",
     "timestamp": 7,
-    "anomaly_score": 30.0
+    "anomaly_score": 21.9
   },
   {
     "ship_id": "S4",
     "timestamp": 8,
-    "anomaly_score": 12.0
+    "anomaly_score": 48.9
   },
   {
     "ship_id": "S4",
     "timestamp": 9,
-    "anomaly_score": 100.0
+    "anomaly_score": 31.7
   },
   {
     "ship_id": "S4",
     "timestamp": 10,
-    "anomaly_score": 11.6
+    "anomaly_score": 22.7
   },
   {
     "ship_id": "S4",
     "timestamp": 11,
-    "anomaly_score": 10.5
+    "anomaly_score": 30.6
   },
   {
     "ship_id": "S4",
     "timestamp": 12,
-    "anomaly_score": 24.2
+    "anomaly_score": 36.0
   },
   {
     "ship_id": "S4",
     "timestamp": 13,
-    "anomaly_score": 15.0
-  },
-  {
-    "ship_id": "S4",
-    "timestamp": 14,
-    "anomaly_score": 10.6
-  },
-  {
-    "ship_id": "S4",
-    "timestamp": 15,
-    "anomaly_score": 10.4
-  },
-  {
-    "ship_id": "S4",
-    "timestamp": 16,
-    "anomaly_score": 16.3
-  },
-  {
-    "ship_id": "S4",
-    "timestamp": 17,
-    "anomaly_score": 25.4
-  },
-  {
-    "ship_id": "S4",
-    "timestamp": 18,
-    "anomaly_score": 17.6
-  },
-  {
-    "ship_id": "S4",
-    "timestamp": 19,
-    "anomaly_score": 14.9
-  },
-  {
-    "ship_id": "S4",
-    "timestamp": 20,
-    "anomaly_score": 19.5
-  },
-  {
-    "ship_id": "S5",
-    "timestamp": 1,
-    "anomaly_score": 68.3
-  },
-  {
-    "ship_id": "S5",
-    "timestamp": 2,
-    "anomaly_score": 50.7
-  },
-  {
-    "ship_id": "S5",
-    "timestamp": 3,
     "anomaly_score": 45.2
   },
   {
-    "ship_id": "S5",
-    "timestamp": 4,
-    "anomaly_score": 57.1
-  },
-  {
-    "ship_id": "S5",
-    "timestamp": 5,
-    "anomaly_score": 26.5
-  },
-  {
-    "ship_id": "S5",
-    "timestamp": 6,
-    "anomaly_score": 21.3
-  },
-  {
-    "ship_id": "S5",
-    "timestamp": 7,
-    "anomaly_score": 41.9
-  },
-  {
-    "ship_id": "S5",
-    "timestamp": 8,
-    "anomaly_score": 22.4
-  },
-  {
-    "ship_id": "S5",
-    "timestamp": 9,
-    "anomaly_score": 34.5
-  },
-  {
-    "ship_id": "S5",
-    "timestamp": 10,
-    "anomaly_score": 18.0
-  },
-  {
-    "ship_id": "S5",
-    "timestamp": 11,
-    "anomaly_score": 33.2
-  },
-  {
-    "ship_id": "S5",
-    "timestamp": 12,
-    "anomaly_score": 72.0
-  },
-  {
-    "ship_id": "S5",
-    "timestamp": 13,
-    "anomaly_score": 82.1
-  },
-  {
-    "ship_id": "S5",
+    "ship_id": "S4",
     "timestamp": 14,
-    "anomaly_score": 65.8
+    "anomaly_score": 45.8
   },
   {
-    "ship_id": "S5",
+    "ship_id": "S4",
     "timestamp": 15,
-    "anomaly_score": 78.0
-  },
-  {
-    "ship_id": "S5",
-    "timestamp": 16,
-    "anomaly_score": 37.3
-  },
-  {
-    "ship_id": "S5",
-    "timestamp": 17,
-    "anomaly_score": 37.3
-  },
-  {
-    "ship_id": "S5",
-    "timestamp": 18,
-    "anomaly_score": 37.3
-  },
-  {
-    "ship_id": "S5",
-    "timestamp": 19,
-    "anomaly_score": 37.3
-  },
-  {
-    "ship_id": "S5",
-    "timestamp": 20,
-    "anomaly_score": 37.3
-  },
-  {
-    "ship_id": "S6",
-    "timestamp": 1,
-    "anomaly_score": 65.0
-  },
-  {
-    "ship_id": "S6",
-    "timestamp": 2,
-    "anomaly_score": 59.7
-  },
-  {
-    "ship_id": "S6",
-    "timestamp": 3,
-    "anomaly_score": 48.7
-  },
-  {
-    "ship_id": "S6",
-    "timestamp": 4,
-    "anomaly_score": 44.6
-  },
-  {
-    "ship_id": "S6",
-    "timestamp": 5,
-    "anomaly_score": 37.9
-  },
-  {
-    "ship_id": "S6",
-    "timestamp": 6,
-    "anomaly_score": 23.9
-  },
-  {
-    "ship_id": "S6",
-    "timestamp": 7,
-    "anomaly_score": 11.6
-  },
-  {
-    "ship_id": "S6",
-    "timestamp": 8,
-    "anomaly_score": 0.0
-  },
-  {
-    "ship_id": "S6",
-    "timestamp": 9,
-    "anomaly_score": 16.4
-  },
-  {
-    "ship_id": "S6",
-    "timestamp": 10,
-    "anomaly_score": 26.4
-  },
-  {
-    "ship_id": "S6",
-    "timestamp": 11,
-    "anomaly_score": 60.9
-  },
-  {
-    "ship_id": "S6",
-    "timestamp": 12,
-    "anomaly_score": 71.2
-  },
-  {
-    "ship_id": "S6",
-    "timestamp": 13,
-    "anomaly_score": 78.7
-  },
-  {
-    "ship_id": "S6",
-    "timestamp": 14,
-    "anomaly_score": 66.7
-  },
-  {
-    "ship_id": "S6",
-    "timestamp": 15,
-    "anomaly_score": 79.9
-  },
-  {
-    "ship_id": "S6",
-    "timestamp": 16,
-    "anomaly_score": 37.3
-  },
-  {
-    "ship_id": "S6",
-    "timestamp": 17,
-    "anomaly_score": 37.3
-  },
-  {
-    "ship_id": "S6",
-    "timestamp": 18,
-    "anomaly_score": 37.3
-  },
-  {
-    "ship_id": "S6",
-    "timestamp": 19,
-    "anomaly_score": 37.3
-  },
-  {
-    "ship_id": "S6",
-    "timestamp": 20,
-    "anomaly_score": 37.3
-  },
-  {
-    "ship_id": "S7",
-    "timestamp": 1,
-    "anomaly_score": 38.7
-  },
-  {
-    "ship_id": "S7",
-    "timestamp": 2,
-    "anomaly_score": 28.9
-  },
-  {
-    "ship_id": "S7",
-    "timestamp": 3,
-    "anomaly_score": 35.4
-  },
-  {
-    "ship_id": "S7",
-    "timestamp": 4,
-    "anomaly_score": 27.1
-  },
-  {
-    "ship_id": "S7",
-    "timestamp": 5,
-    "anomaly_score": 23.3
-  },
-  {
-    "ship_id": "S7",
-    "timestamp": 6,
-    "anomaly_score": 35.4
-  },
-  {
-    "ship_id": "S7",
-    "timestamp": 7,
-    "anomaly_score": 44.2
-  },
-  {
-    "ship_id": "S7",
-    "timestamp": 8,
     "anomaly_score": 30.1
   },
   {
+    "ship_id": "S4",
+    "timestamp": 16,
+    "anomaly_score": 52.5
+  },
+  {
+    "ship_id": "S4",
+    "timestamp": 17,
+    "anomaly_score": 53.0
+  },
+  {
+    "ship_id": "S4",
+    "timestamp": 18,
+    "anomaly_score": 46.5
+  },
+  {
+    "ship_id": "S4",
+    "timestamp": 19,
+    "anomaly_score": 38.0
+  },
+  {
+    "ship_id": "S4",
+    "timestamp": 20,
+    "anomaly_score": 51.6
+  },
+  {
+    "ship_id": "S5",
+    "timestamp": 1,
+    "anomaly_score": 54.0
+  },
+  {
+    "ship_id": "S5",
+    "timestamp": 2,
+    "anomaly_score": 84.9
+  },
+  {
+    "ship_id": "S5",
+    "timestamp": 3,
+    "anomaly_score": 43.5
+  },
+  {
+    "ship_id": "S5",
+    "timestamp": 4,
+    "anomaly_score": 77.7
+  },
+  {
+    "ship_id": "S5",
+    "timestamp": 5,
+    "anomaly_score": 37.8
+  },
+  {
+    "ship_id": "S5",
+    "timestamp": 6,
+    "anomaly_score": 29.8
+  },
+  {
+    "ship_id": "S5",
+    "timestamp": 7,
+    "anomaly_score": 19.2
+  },
+  {
+    "ship_id": "S5",
+    "timestamp": 8,
+    "anomaly_score": 38.9
+  },
+  {
+    "ship_id": "S5",
+    "timestamp": 9,
+    "anomaly_score": 39.3
+  },
+  {
+    "ship_id": "S5",
+    "timestamp": 10,
+    "anomaly_score": 77.1
+  },
+  {
+    "ship_id": "S5",
+    "timestamp": 11,
+    "anomaly_score": 30.7
+  },
+  {
+    "ship_id": "S5",
+    "timestamp": 12,
+    "anomaly_score": 50.9
+  },
+  {
+    "ship_id": "S5",
+    "timestamp": 13,
+    "anomaly_score": 57.5
+  },
+  {
+    "ship_id": "S5",
+    "timestamp": 14,
+    "anomaly_score": 64.2
+  },
+  {
+    "ship_id": "S5",
+    "timestamp": 15,
+    "anomaly_score": 67.1
+  },
+  {
+    "ship_id": "S5",
+    "timestamp": 16,
+    "anomaly_score": 61.6
+  },
+  {
+    "ship_id": "S5",
+    "timestamp": 17,
+    "anomaly_score": 40.5
+  },
+  {
+    "ship_id": "S5",
+    "timestamp": 18,
+    "anomaly_score": 47.6
+  },
+  {
+    "ship_id": "S5",
+    "timestamp": 19,
+    "anomaly_score": 45.3
+  },
+  {
+    "ship_id": "S5",
+    "timestamp": 20,
+    "anomaly_score": 57.8
+  },
+  {
+    "ship_id": "S6",
+    "timestamp": 1,
+    "anomaly_score": 59.0
+  },
+  {
+    "ship_id": "S6",
+    "timestamp": 2,
+    "anomaly_score": 65.5
+  },
+  {
+    "ship_id": "S6",
+    "timestamp": 3,
+    "anomaly_score": 40.0
+  },
+  {
+    "ship_id": "S6",
+    "timestamp": 4,
+    "anomaly_score": 43.2
+  },
+  {
+    "ship_id": "S6",
+    "timestamp": 5,
+    "anomaly_score": 79.1
+  },
+  {
+    "ship_id": "S6",
+    "timestamp": 6,
+    "anomaly_score": 35.4
+  },
+  {
+    "ship_id": "S6",
+    "timestamp": 7,
+    "anomaly_score": 45.4
+  },
+  {
+    "ship_id": "S6",
+    "timestamp": 8,
+    "anomaly_score": 38.8
+  },
+  {
+    "ship_id": "S6",
+    "timestamp": 9,
+    "anomaly_score": 25.0
+  },
+  {
+    "ship_id": "S6",
+    "timestamp": 10,
+    "anomaly_score": 33.4
+  },
+  {
+    "ship_id": "S6",
+    "timestamp": 11,
+    "anomaly_score": 36.4
+  },
+  {
+    "ship_id": "S6",
+    "timestamp": 12,
+    "anomaly_score": 57.2
+  },
+  {
+    "ship_id": "S6",
+    "timestamp": 13,
+    "anomaly_score": 72.6
+  },
+  {
+    "ship_id": "S6",
+    "timestamp": 14,
+    "anomaly_score": 75.2
+  },
+  {
+    "ship_id": "S6",
+    "timestamp": 15,
+    "anomaly_score": 74.2
+  },
+  {
+    "ship_id": "S6",
+    "timestamp": 16,
+    "anomaly_score": 64.2
+  },
+  {
+    "ship_id": "S6",
+    "timestamp": 17,
+    "anomaly_score": 56.3
+  },
+  {
+    "ship_id": "S6",
+    "timestamp": 18,
+    "anomaly_score": 50.8
+  },
+  {
+    "ship_id": "S6",
+    "timestamp": 19,
+    "anomaly_score": 40.5
+  },
+  {
+    "ship_id": "S6",
+    "timestamp": 20,
+    "anomaly_score": 50.3
+  },
+  {
+    "ship_id": "S7",
+    "timestamp": 1,
+    "anomaly_score": 4.5
+  },
+  {
+    "ship_id": "S7",
+    "timestamp": 2,
+    "anomaly_score": 34.0
+  },
+  {
+    "ship_id": "S7",
+    "timestamp": 3,
+    "anomaly_score": 14.6
+  },
+  {
+    "ship_id": "S7",
+    "timestamp": 4,
+    "anomaly_score": 34.2
+  },
+  {
+    "ship_id": "S7",
+    "timestamp": 5,
+    "anomaly_score": 11.4
+  },
+  {
+    "ship_id": "S7",
+    "timestamp": 6,
+    "anomaly_score": 35.1
+  },
+  {
+    "ship_id": "S7",
+    "timestamp": 7,
+    "anomaly_score": 4.4
+  },
+  {
+    "ship_id": "S7",
+    "timestamp": 8,
+    "anomaly_score": 2.6
+  },
+  {
     "ship_id": "S7",
     "timestamp": 9,
-    "anomaly_score": 35.4
+    "anomaly_score": 42.7
   },
   {
     "ship_id": "S7",
     "timestamp": 10,
-    "anomaly_score": 37.2
+    "anomaly_score": 77.3
   },
   {
     "ship_id": "S7",
     "timestamp": 11,
-    "anomaly_score": 23.3
+    "anomaly_score": 6.4
   },
   {
     "ship_id": "S7",
     "timestamp": 12,
-    "anomaly_score": 37.7
+    "anomaly_score": 2.7
   },
   {
     "ship_id": "S7",
     "timestamp": 13,
-    "anomaly_score": 28.7
+    "anomaly_score": 0.0
   },
   {
     "ship_id": "S7",
     "timestamp": 14,
-    "anomaly_score": 15.7
+    "anomaly_score": 3.3
   },
   {
     "ship_id": "S7",
     "timestamp": 15,
-    "anomaly_score": 19.1
+    "anomaly_score": 2.5
   },
   {
     "ship_id": "S7",
     "timestamp": 16,
-    "anomaly_score": 27.2
+    "anomaly_score": 1.3
   },
   {
     "ship_id": "S7",
     "timestamp": 17,
-    "anomaly_score": 33.8
+    "anomaly_score": 6.9
   },
   {
     "ship_id": "S7",
     "timestamp": 18,
-    "anomaly_score": 62.8
+    "anomaly_score": 2.4
   },
   {
     "ship_id": "S7",
     "timestamp": 19,
-    "anomaly_score": 62.4
+    "anomaly_score": 5.7
   },
   {
     "ship_id": "S7",
     "timestamp": 20,
-    "anomaly_score": 93.3
+    "anomaly_score": 4.9
   },
   {
     "ship_id": "S8",
     "timestamp": 1,
-    "anomaly_score": 57.4
+    "anomaly_score": 31.1
   },
   {
     "ship_id": "S8",
     "timestamp": 2,
-    "anomaly_score": 38.2
+    "anomaly_score": 31.7
   },
   {
     "ship_id": "S8",
     "timestamp": 3,
-    "anomaly_score": 50.2
+    "anomaly_score": 31.6
   },
   {
     "ship_id": "S8",
     "timestamp": 4,
-    "anomaly_score": 32.2
+    "anomaly_score": 58.9
   },
   {
     "ship_id": "S8",
     "timestamp": 5,
+    "anomaly_score": 36.6
+  },
+  {
+    "ship_id": "S8",
+    "timestamp": 6,
+    "anomaly_score": 68.9
+  },
+  {
+    "ship_id": "S8",
+    "timestamp": 7,
+    "anomaly_score": 66.5
+  },
+  {
+    "ship_id": "S8",
+    "timestamp": 8,
+    "anomaly_score": 35.5
+  },
+  {
+    "ship_id": "S8",
+    "timestamp": 9,
+    "anomaly_score": 35.9
+  },
+  {
+    "ship_id": "S8",
+    "timestamp": 10,
     "anomaly_score": 42.0
   },
   {
     "ship_id": "S8",
-    "timestamp": 6,
-    "anomaly_score": 42.7
-  },
-  {
-    "ship_id": "S8",
-    "timestamp": 7,
-    "anomaly_score": 28.8
-  },
-  {
-    "ship_id": "S8",
-    "timestamp": 8,
-    "anomaly_score": 36.9
-  },
-  {
-    "ship_id": "S8",
-    "timestamp": 9,
-    "anomaly_score": 59.6
-  },
-  {
-    "ship_id": "S8",
-    "timestamp": 10,
-    "anomaly_score": 84.3
-  },
-  {
-    "ship_id": "S8",
     "timestamp": 11,
-    "anomaly_score": 48.0
+    "anomaly_score": 56.6
   },
   {
     "ship_id": "S8",
     "timestamp": 12,
-    "anomaly_score": 55.5
+    "anomaly_score": 71.0
   },
   {
     "ship_id": "S8",
     "timestamp": 13,
-    "anomaly_score": 58.5
+    "anomaly_score": 79.2
   },
   {
     "ship_id": "S8",
     "timestamp": 14,
-    "anomaly_score": 52.0
+    "anomaly_score": 87.4
   },
   {
     "ship_id": "S8",
     "timestamp": 15,
-    "anomaly_score": 38.6
+    "anomaly_score": 100.0
   },
   {
     "ship_id": "S8",
     "timestamp": 16,
-    "anomaly_score": 64.5
+    "anomaly_score": 78.8
   },
   {
     "ship_id": "S8",
     "timestamp": 17,
-    "anomaly_score": 46.5
+    "anomaly_score": 65.4
   },
   {
     "ship_id": "S8",
     "timestamp": 18,
-    "anomaly_score": 74.1
+    "anomaly_score": 79.4
   },
   {
     "ship_id": "S8",
     "timestamp": 19,
-    "anomaly_score": 46.4
+    "anomaly_score": 63.2
   },
   {
     "ship_id": "S8",
     "timestamp": 20,
-    "anomaly_score": 59.0
+    "anomaly_score": 73.9
   }
 ]
