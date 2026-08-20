@@ -24,6 +24,7 @@
     <main>
         <div class="map-container">
             <div id="map"></div>
+            <div class="manual-hud" id="manualHud"></div>
         </div>
 
         <aside class="sidebar">
@@ -34,6 +35,11 @@
             <div class="alerts-container" id="alertsContainer">
                 <!-- Alerts will be dynamically inserted here -->
             </div>
+            <div class="manual-banner" id="manualBanner">
+                <div class="manual-banner-text" id="manualBannerText"></div>
+                <button class="manual-try-again-btn" id="manualTryAgainBtn">Try Again</button>
+                <button class="manual-exit-btn" id="manualExitBtn">Exit Manual Mode</button>
+            </div>
         </aside>
     </main>
 
@@ -42,6 +48,7 @@
             <button id="playPauseBtn" class="btn btn-primary">
                 <span id="playIcon">▶</span> Play
             </button>
+            <button id="manualModeBtn" class="btn btn-secondary">🎮 Manual Control Mode</button>
             <div class="speed-control">
                 <label for="speedSelect">Speed:</label>
                 <select id="speedSelect">

@@ -12,8 +12,8 @@ from sklearn.ensemble import IsolationForest
 # Corridor zone boundaries (same as geofence.py)
 CORRIDOR_LAT_MIN = 13.00
 CORRIDOR_LAT_MAX = 13.10
-CORRIDOR_LON_MIN = 80.20
-CORRIDOR_LON_MAX = 80.35
+CORRIDOR_LON_MIN = 80.35
+CORRIDOR_LON_MAX = 80.50
 
 # Data source path
 DATA_SOURCE = "data/ships_data.json"

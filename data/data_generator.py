@@ -10,8 +10,8 @@ import os
 # Corridor boundaries (must match geofence.py exactly)
 CORRIDOR_LAT_MIN = 13.00
 CORRIDOR_LAT_MAX = 13.10
-CORRIDOR_LON_MIN = 80.20
-CORRIDOR_LON_MAX = 80.35
+CORRIDOR_LON_MIN = 80.35
+CORRIDOR_LON_MAX = 80.50
 
 def is_in_corridor(lat, lon):
     """Check if a point is inside the corridor zone."""

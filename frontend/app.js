@@ -66,7 +66,7 @@ function initMap() {
     const centerLat = (CORRIDOR_BOUNDS.latMin + CORRIDOR_BOUNDS.latMax) / 2;
     const centerLon = (CORRIDOR_BOUNDS.lonMin + CORRIDOR_BOUNDS.lonMax) / 2;
     
-    map = L.map('map').setView([centerLat, centerLon], 11);
+    map = L.map('map', { keyboard: false }).setView([centerLat, centerLon], 11);
     
     // Add CartoDB Dark Matter tile layer (dark land, blue water, no API key needed)
     L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
@@ -267,10 +267,304 @@ function renderFrame(timestamp) {
     document.getElementById('alertCount').textContent = alertsToShow.length;
 }
 
+// Manual Control Mode - Isolated namespace
+const manualMode = {
+    isActive: false,
+    interval: null,
+    ship: null,
+    hasFlagged: false,
+    
+    start: function() {
+        console.log('[ManualMode] Executing start()...');
+        
+        // Step 2a: If main simulation is playing, stop it
+        if (isPlaying) {
+            console.log('[ManualMode] Stopping playback...');
+            togglePlay();
+        }
+        
+        // Step 2b: Hide alert sidebar content, show manual banner
+        console.log('[ManualMode] Hiding alerts, showing banner...');
+        const alertsContainer = document.getElementById('alertsContainer');
+        const manualBanner = document.getElementById('manualBanner');
+        const manualBannerText = document.getElementById('manualBannerText');
+        const manualTryAgainBtn = document.getElementById('manualTryAgainBtn');
+        
+        if (!alertsContainer) console.error('[ManualMode] alertsContainer not found!');
+        if (!manualBanner) console.error('[ManualMode] manualBanner not found!');
+        if (!manualBannerText) console.error('[ManualMode] manualBannerText not found!');
+        if (!manualTryAgainBtn) console.error('[ManualMode] manualTryAgainBtn not found!');
+        
+        if (alertsContainer) alertsContainer.style.display = 'none';
+        if (manualBanner) manualBanner.style.display = 'block';
+        if (manualBanner) manualBanner.className = 'manual-banner';
+        if (manualBannerText) manualBannerText.textContent = '';
+        if (manualTryAgainBtn) manualTryAgainBtn.style.display = 'none';
+        
+        // Step 2c: Clear existing markers
+        console.log('[ManualMode] Clearing markers...');
+        markerLayerGroup.clearLayers();
+        map.closePopup();
+        
+        // Step 2d: Create ship state
+        console.log('[ManualMode] Creating ship state...');
+        this.ship = {
+            lat: 13.05,
+            lon: 80.32,
+            speed: 10,
+            heading: 90
+        };
+        
+        // Step 2e: Render initial marker
+        console.log('[ManualMode] Rendering marker at', this.ship.lat, this.ship.lon);
+        this.renderMarker();
+        
+        // Show HUD
+        console.log('[ManualMode] Showing HUD...');
+        const manualHud = document.getElementById('manualHud');
+        if (!manualHud) console.error('[ManualMode] manualHud not found!');
+        if (manualHud) manualHud.style.display = 'block';
+        this.updateHUD();
+        
+        // Set active flag
+        this.isActive = true;
+        this.hasFlagged = false;
+        
+        // Add keyboard listeners
+        console.log('[ManualMode] Adding keyboard listeners...');
+        this.addKeyboardListeners();
+        
+        // Start movement loop
+        console.log('[ManualMode] Starting movement loop...');
+        this.startMovementLoop();
+        
+        console.log('[ManualMode] start() completed successfully');
+    },
+    
+    renderMarker: function() {
+        console.log('[ManualMode] renderMarker() called with lat:', this.ship.lat, 'lon:', this.ship.lon);
+        const color = getShipColor('normal');
+        const marker = L.marker([this.ship.lat, this.ship.lon], {
+            icon: createShipIcon(color, false)
+        }).addTo(markerLayerGroup);
+        
+        this.currentMarker = marker;
+        console.log('[ManualMode] Marker created and added to layer group. Layer count:', markerLayerGroup.getLayers().length);
+        
+        // Pan map to the manual ship position to make it visible
+        map.panTo([this.ship.lat, this.ship.lon]);
+    },
+    
+    updateMarker: function() {
+        if (this.currentMarker) {
+            markerLayerGroup.removeLayer(this.currentMarker);
+        }
+        
+        const color = this.hasFlagged ? getShipColor('anomaly') : getShipColor('normal');
+        const isAnomaly = this.hasFlagged;
+        
+        this.currentMarker = L.marker([this.ship.lat, this.ship.lon], {
+            icon: createShipIcon(color, isAnomaly)
+        }).addTo(markerLayerGroup);
+    },
+    
+    addKeyboardListeners: function() {
+        this.handleKeyDown = (e) => {
+            if (!this.isActive) return;
+            
+            const step = e.shiftKey ? 0.015 : 0.005;
+            
+            switch(e.key) {
+                case 'ArrowUp':
+                    e.preventDefault();
+                    this.ship.lat += step;
+                    console.log('[ManualMode] ArrowUp: lat =', this.ship.lat.toFixed(4), 'lon =', this.ship.lon.toFixed(4));
+                    this.updateMarker();
+                    this.updateHUD();
+                    break;
+                case 'ArrowDown':
+                    e.preventDefault();
+                    this.ship.lat -= step;
+                    console.log('[ManualMode] ArrowDown: lat =', this.ship.lat.toFixed(4), 'lon =', this.ship.lon.toFixed(4));
+                    this.updateMarker();
+                    this.updateHUD();
+                    break;
+                case 'ArrowLeft':
+                    e.preventDefault();
+                    this.ship.lon -= step;
+                    console.log('[ManualMode] ArrowLeft: lat =', this.ship.lat.toFixed(4), 'lon =', this.ship.lon.toFixed(4));
+                    this.updateMarker();
+                    this.updateHUD();
+                    break;
+                case 'ArrowRight':
+                    e.preventDefault();
+                    this.ship.lon += step;
+                    console.log('[ManualMode] ArrowRight: lat =', this.ship.lat.toFixed(4), 'lon =', this.ship.lon.toFixed(4));
+                    this.updateMarker();
+                    this.updateHUD();
+                    break;
+                case '+':
+                case '=':
+                    e.preventDefault();
+                    this.ship.speed = Math.min(20, this.ship.speed + 1);
+                    console.log('[ManualMode] Speed increased to', this.ship.speed);
+                    this.updateHUD();
+                    break;
+                case '-':
+                case '_':
+                    e.preventDefault();
+                    this.ship.speed = Math.max(0, this.ship.speed - 1);
+                    console.log('[ManualMode] Speed decreased to', this.ship.speed);
+                    this.updateHUD();
+                    break;
+            }
+        };
+        
+        document.addEventListener('keydown', this.handleKeyDown);
+    },
+    
+    removeKeyboardListeners: function() {
+        if (this.handleKeyDown) {
+            document.removeEventListener('keydown', this.handleKeyDown);
+            this.handleKeyDown = null;
+        }
+    },
+    
+    updateHUD: function() {
+        const insideCorridor = this.isInsideCorridor();
+        const hud = document.getElementById('manualHud');
+        hud.textContent = `Speed: ${this.ship.speed} kt | Position: ${insideCorridor ? 'INSIDE' : 'OUTSIDE'} corridor`;
+        
+        if (insideCorridor) {
+            hud.classList.add('inside-corridor');
+        } else {
+            hud.classList.remove('inside-corridor');
+        }
+    },
+    
+    isInsideCorridor: function() {
+        return this.ship.lat >= CORRIDOR_BOUNDS.latMin && 
+               this.ship.lat <= CORRIDOR_BOUNDS.latMax && 
+               this.ship.lon >= CORRIDOR_BOUNDS.lonMin && 
+               this.ship.lon <= CORRIDOR_BOUNDS.lonMax;
+    },
+    
+    startMovementLoop: function() {
+        // Movement loop now only checks detection and updates HUD
+        // Position changes only on keypress (direct control)
+        this.interval = setInterval(() => {
+            // Update HUD
+            this.updateHUD();
+            
+            // Detection check: speed represents current movement rate (boosted via Shift = fast/safe, normal = slow/risky)
+            if (this.isInsideCorridor() && this.ship.speed < 5 && !this.hasFlagged) {
+                this.flagAnomaly();
+                return;
+            }
+            
+            // Pass condition
+            if (this.ship.lon > CORRIDOR_BOUNDS.lonMax && !this.hasFlagged) {
+                this.passCondition();
+                return;
+            }
+        }, 200);
+    },
+    
+    flagAnomaly: function() {
+        // Stop the loop
+        clearInterval(this.interval);
+        this.interval = null;
+        
+        // Set flagged state
+        this.hasFlagged = true;
+        
+        // Change marker to red + pulse
+        this.updateMarker();
+        
+        // Show banner
+        const banner = document.getElementById('manualBanner');
+        banner.className = 'manual-banner manual-flagged';
+        document.getElementById('manualBannerText').textContent = 
+            `🚨 FLAGGED — Anchor drag detected inside cable corridor at ${this.ship.speed} knots`;
+        document.getElementById('manualTryAgainBtn').style.display = 'inline-block';
+        
+        // Remove keyboard listeners
+        this.removeKeyboardListeners();
+    },
+    
+    passCondition: function() {
+        // Stop the loop
+        clearInterval(this.interval);
+        this.interval = null;
+        
+        // Show banner
+        const banner = document.getElementById('manualBanner');
+        banner.className = 'manual-banner manual-passed';
+        document.getElementById('manualBannerText').textContent = 
+            '✅ PASSED — Vessel transited corridor without triggering an alert';
+        document.getElementById('manualTryAgainBtn').style.display = 'inline-block';
+        
+        // Remove keyboard listeners
+        this.removeKeyboardListeners();
+    },
+    
+    exit: function() {
+        console.log('[ManualMode] exit() called...');
+        
+        // Step 7a: Stop interval and remove listeners
+        if (this.interval) {
+            clearInterval(this.interval);
+            this.interval = null;
+        }
+        this.removeKeyboardListeners();
+        
+        // Step 7b: Explicitly remove manual marker before clearing layers
+        if (this.currentMarker) {
+            markerLayerGroup.removeLayer(this.currentMarker);
+            this.currentMarker = null;
+        }
+        
+        // Clear all remaining markers
+        markerLayerGroup.clearLayers();
+        
+        // Step 7c: Restore alert sidebar
+        document.getElementById('alertsContainer').style.display = 'block';
+        document.getElementById('manualBanner').style.display = 'none';
+        document.getElementById('manualHud').style.display = 'none';
+        
+        // Step 7d: Render original simulation
+        renderFrame(currentTimestamp);
+        
+        // Verify marker count is exactly 8
+        console.log('[ManualMode] After exit, marker count:', markerLayerGroup.getLayers().length);
+        
+        // Step 7e: Hide manual mode UI (already done above)
+        
+        // Reset active flag
+        this.isActive = false;
+        this.hasFlagged = false;
+        
+        console.log('[ManualMode] exit() completed');
+    }
+};
+
 // Setup event listeners
 function setupEventListeners() {
+    console.log('[DEBUG] setupEventListeners() executing...');
+    
     // Play/Pause button
     document.getElementById('playPauseBtn').addEventListener('click', togglePlay);
+    
+    // Manual Mode button
+    const manualBtn = document.getElementById('manualModeBtn');
+    if (manualBtn) {
+        manualBtn.addEventListener('click', () => {
+            console.log('[ManualMode] Button clicked!');
+            manualMode.start();
+        });
+    } else {
+        console.error('[ManualMode] Button element not found in DOM!');
+    }
     
     // Speed control
     document.getElementById('speedSelect').addEventListener('change', (e) => {
@@ -292,6 +586,10 @@ function setupEventListeners() {
     
     // Reset button
     document.getElementById('resetBtn').addEventListener('click', resetAnimation);
+    
+    // Manual mode buttons
+    document.getElementById('manualTryAgainBtn').addEventListener('click', () => manualMode.start());
+    document.getElementById('manualExitBtn').addEventListener('click', () => manualMode.exit());
 }
 
 // Toggle play/pause

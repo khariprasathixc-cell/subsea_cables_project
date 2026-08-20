@@ -410,6 +410,81 @@ footer.controls {
     }
 }
 
+/* Manual Mode Styles */
+.manual-banner {
+    background: #16213e;
+    border: 2px solid #e94560;
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    display: none;
+}
+
+.manual-banner.manual-flagged {
+    background: rgba(233, 69, 96, 0.2);
+    border-color: #ff6b6b;
+}
+
+.manual-banner.manual-passed {
+    background: rgba(46, 204, 113, 0.2);
+    border-color: #2ecc71;
+}
+
+.manual-banner-text {
+    font-size: 0.9rem;
+    color: #eee;
+    margin-bottom: 0.5rem;
+}
+
+.manual-try-again-btn {
+    background: #e94560;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    margin-top: 0.5rem;
+}
+
+.manual-try-again-btn:hover {
+    background: #ff6b6b;
+}
+
+.manual-hud {
+    background: rgba(22, 33, 62, 0.9);
+    border: 1px solid #0f3460;
+    border-radius: 6px;
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+    color: #eee;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 1000;
+    display: none;
+}
+
+.manual-hud.inside-corridor {
+    border-color: #2ecc71;
+    color: #2ecc71;
+}
+
+.manual-exit-btn {
+    background: #16213e;
+    color: #e94560;
+    border: 1px solid #e94560;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    margin-top: 0.5rem;
+}
+
+.manual-exit-btn:hover {
+    background: rgba(233, 69, 96, 0.1);
+}
+
 /* Responsive */
 @media (max-width: 1024px) {
     .sidebar {
