@@ -4,6 +4,7 @@ Engineers features from ship AIS data and trains an unsupervised model
 to detect anomalous behavior patterns.
 """
 
+import os
 import json
 import math
 import numpy as np
@@ -16,7 +17,10 @@ CORRIDOR_LON_MIN = 80.35
 CORRIDOR_LON_MAX = 80.50
 
 # Data source path
-DATA_SOURCE = "data/ships_data.json"
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+ROOT_DIR = os.path.dirname(BASE_DIR)
+DATA_SOURCE = os.path.join(ROOT_DIR, "data", "ships_data.json")
+OUTPUT_SCORES_FILE = os.path.join(BASE_DIR, "ml_scores.json")
 
 
 def load_mock_data(filepath):
@@ -215,7 +219,7 @@ def main():
     anomaly_scores = compute_anomaly_scores(model, features)
     
     print("Saving ML scores...")
-    save_ml_scores(metadata, anomaly_scores, 'backend/ml_scores.json')
+    save_ml_scores(metadata, anomaly_scores, OUTPUT_SCORES_FILE)
     
     # Print summary
     rows_scored = len(anomaly_scores)
@@ -228,7 +232,7 @@ def main():
     print(f"Min anomaly_score: {min_score:.1f}")
     print(f"Max anomaly_score: {max_score:.1f}")
     print(f"Avg anomaly_score: {avg_score:.1f}")
-    print(f"ML scores saved to backend/ml_scores.json")
+    print(f"ML scores saved to {OUTPUT_SCORES_FILE}")
 
 
 if __name__ == "__main__":

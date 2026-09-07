@@ -3,75 +3,202 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SubseaGuard - Predictive AIS Geo-Fencing & Early Warning System</title>
+    <title>SubseaGuard Sentinel-X // Maritime C2 & Bimodal Sensor Fusion</title>
+    <!-- Tactical Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <header>
-        <div class="header-content">
-            <div class="brand">
-                <h1>SubseaGuard</h1>
-                <p class="tagline">Predictive AIS Geo-Fencing & Early Warning System</p>
+<body class="tactical-theme">
+    <!-- Top Tactical C2 Operations Header -->
+    <header class="c2-header">
+        <div class="c2-header-inner">
+            <div class="brand-section">
+                <div class="brand-badge-row">
+                    <span class="system-code">SENTINEL-X // C2</span>
+                    <span class="sector-code">SECTOR: BAY OF BENGAL [SMW-4 / BBG]</span>
+                </div>
+                <h1 class="brand-title">SUBSEA<span class="brand-accent">GUARD</span></h1>
+                <p class="brand-subtitle">Predictive AIS Geo-Fencing & Acoustic DAS Bimodal Fusion Engine</p>
             </div>
-            <div class="status-badge" id="statusBadge">
-                <span class="status-dot"></span>
-                <span class="status-text">Monitoring Active</span>
+
+            <!-- Telemetry & Threat Assessment Center -->
+            <div class="telemetry-bar">
+                <div class="telemetry-item" id="cursorTelemetry">
+                    <span class="telemetry-label">CURSOR GRID</span>
+                    <span class="telemetry-value" id="cursorCoords">LAT 13.0500° N | LON 80.4250° E</span>
+                </div>
+
+                <div class="telemetry-item threat-meter-item">
+                    <div class="threat-label-row">
+                        <span class="telemetry-label">SECTOR THREAT INDEX</span>
+                        <span class="threat-value" id="threatIndexValue">0%</span>
+                    </div>
+                    <div class="threat-track">
+                        <div class="threat-bar" id="threatProgressBar" style="width: 0%;"></div>
+                    </div>
+                </div>
+
+                <div class="status-badges-group">
+                    <div class="tactical-badge badge-ais" id="statusBadge">
+                        <span class="pulse-dot ais-dot"></span>
+                        <span class="badge-text" id="aisStatusText">AIS GEOFENCE: ACTIVE</span>
+                    </div>
+                    <div class="tactical-badge badge-das idle" id="dasStatusBadge">
+                        <span class="pulse-dot das-dot"></span>
+                        <span class="badge-text" id="dasStatusText">DAS PIEZO: STANDBY</span>
+                    </div>
+                </div>
             </div>
         </div>
     </header>
 
-    <main>
+    <!-- Main Tactical Workspace -->
+    <main class="c2-main">
+        <!-- Interactive Map Container -->
         <div class="map-container">
             <div id="map"></div>
-            <div class="manual-hud" id="manualHud"></div>
+            <div class="map-grid-overlay"></div>
+            
+            <!-- In-Map Telemetry Coordinate Reticle -->
+            <div class="map-crosshair-hud" id="mapCrosshairHud">
+                <span class="hud-tag">GEOFENCE [13.00-13.10 N // 80.35-80.50 E]</span>
+            </div>
+
+            <!-- Manual Control Cockpit HUD -->
+            <div class="manual-hud" id="manualHud">
+                <div class="manual-hud-header">
+                    <span class="hud-title">🎮 MANUAL VESSEL TELEMETRY</span>
+                    <span class="hud-mode-pill" id="manualZonePill">OUTSIDE CORRIDOR</span>
+                </div>
+                <div class="manual-hud-grid">
+                    <div class="hud-stat">
+                        <span class="stat-lbl">SPEED</span>
+                        <span class="stat-val" id="manualSpeedVal">10.0 kts</span>
+                    </div>
+                    <div class="hud-stat">
+                        <span class="stat-lbl">HEADING</span>
+                        <span class="stat-val" id="manualHeadingVal">090°</span>
+                    </div>
+                    <div class="hud-stat">
+                        <span class="stat-lbl">POSITION</span>
+                        <span class="stat-val" id="manualPosVal">13.0500, 80.3200</span>
+                    </div>
+                    <div class="hud-stat">
+                        <span class="stat-lbl">SEABED RISK</span>
+                        <span class="stat-val risk-nominal" id="manualRiskVal">NOMINAL</span>
+                    </div>
+                </div>
+                <div class="manual-hud-controls-hint">
+                    <span><kbd>▲</kbd><kbd>▼</kbd><kbd>◄</kbd><kbd>►</kbd> Steer Vessel</span>
+                    <span><kbd>+</kbd> / <kbd>-</kbd> Adjust Knots</span>
+                    <span><kbd>Shift</kbd> Speed Burst</span>
+                </div>
+            </div>
         </div>
 
-        <aside class="sidebar">
+        <!-- Right Side Tactical Operations Panel -->
+        <aside class="sidebar c2-sidebar">
+            <!-- Fiber-Optic Acoustic Oscilloscope -->
+            <div class="oscilloscope-card">
+                <div class="osc-header">
+                    <div class="osc-title-group">
+                        <span class="osc-tag">FIBER-OPTIC DAS INTERROGATOR</span>
+                        <span class="osc-sub">ACOUSTIC CH-04 // KP 14.2 SUBSEA CABLE</span>
+                    </div>
+                    <span class="osc-live-badge" id="waveformStatus">STANDBY</span>
+                </div>
+                <div class="canvas-wrapper">
+                    <canvas id="oscilloscopeCanvas" width="340" height="75"></canvas>
+                    <div class="osc-grid-lines"></div>
+                </div>
+                <div class="osc-telemetry-row">
+                    <div class="osc-metric">
+                        <span class="osc-m-lbl">FREQUENCY</span>
+                        <span class="osc-m-val" id="oscFreq">0.0 Hz</span>
+                    </div>
+                    <div class="osc-metric">
+                        <span class="osc-m-lbl">ENERGY</span>
+                        <span class="osc-m-val" id="oscEnergy">0.0 RMS</span>
+                    </div>
+                    <div class="osc-metric">
+                        <span class="osc-m-lbl">TRANSIENT DECAY</span>
+                        <span class="osc-m-val" id="oscDecay">0.0s</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Threat Alert Feed Header -->
             <div class="sidebar-header">
-                <h2>Alerts</h2>
+                <div class="alerts-title-wrap">
+                    <h2>TACTICAL THREAT FEED</h2>
+                    <span class="live-indicator">LIVE POLLING</span>
+                </div>
                 <span class="alert-count" id="alertCount">0</span>
             </div>
+
+            <!-- Scrollable Alerts Stream -->
             <div class="alerts-container" id="alertsContainer">
-                <!-- Alerts will be dynamically inserted here -->
+                <!-- Alerts dynamically injected here -->
             </div>
+
+            <!-- Manual Mode Result / Mission Banner -->
             <div class="manual-banner" id="manualBanner">
+                <div class="manual-banner-header">
+                    <span class="banner-icon" id="manualBannerIcon">⚠️</span>
+                    <span class="banner-title" id="manualBannerTitle">MANUAL SIMULATION STATUS</span>
+                </div>
                 <div class="manual-banner-text" id="manualBannerText"></div>
-                <button class="manual-try-again-btn" id="manualTryAgainBtn">Try Again</button>
-                <button class="manual-exit-btn" id="manualExitBtn">Exit Manual Mode</button>
+                <div class="manual-acoustic-breakdown" id="manualAcousticBreakdown" style="display: none;"></div>
+                <div class="manual-banner-actions">
+                    <button class="btn btn-tactical-action" id="manualTryAgainBtn">Re-Initialize Run</button>
+                    <button class="btn btn-tactical-exit" id="manualExitBtn">Exit Manual Mode</button>
+                </div>
             </div>
         </aside>
     </main>
 
-    <footer class="controls">
+    <!-- Bottom Tactical Control Deck -->
+    <footer class="controls c2-footer">
         <div class="controls-left">
-            <button id="playPauseBtn" class="btn btn-primary">
-                <span id="playIcon">▶</span> Play
+            <button id="playPauseBtn" class="btn btn-tactical-primary">
+                <span id="playIcon">▶</span> <span id="playText">START RUN</span>
             </button>
-            <button id="manualModeBtn" class="btn btn-secondary">🎮 Manual Control Mode</button>
+            <button id="manualModeBtn" class="btn btn-tactical-manual">
+                <span class="switch-light"></span>
+                <span>🎮 MANUAL CONTROL MODE</span>
+            </button>
             <div class="speed-control">
-                <label for="speedSelect">Speed:</label>
-                <select id="speedSelect">
-                    <option value="2000">0.5x</option>
-                    <option value="1000" selected>1x</option>
-                    <option value="500">2x</option>
-                    <option value="250">4x</option>
+                <label for="speedSelect">PLAYBACK RATE:</label>
+                <select id="speedSelect" class="tactical-select">
+                    <option value="2000">0.5X</option>
+                    <option value="1000" selected>1.0X</option>
+                    <option value="500">2.0X</option>
+                    <option value="250">4.0X</option>
                 </select>
             </div>
         </div>
+
         <div class="controls-center">
             <div class="scrubber-container">
-                <input type="range" id="timestampSlider" min="1" max="20" value="1" class="scrubber">
-                <div class="timestamp-display">
-                    <span id="currentTimestamp">1</span> / 20
+                <div class="scrubber-header">
+                    <span class="scrubber-label">TIMESTEP SEQUENCE</span>
+                    <div class="timestamp-display">
+                        <span class="ts-curr" id="currentTimestamp">01</span> / <span class="ts-max">20</span>
+                    </div>
                 </div>
+                <input type="range" id="timestampSlider" min="1" max="20" value="1" class="scrubber tactical-range">
             </div>
         </div>
+
         <div class="controls-right">
-            <button id="resetBtn" class="btn btn-secondary">Reset</button>
+            <button id="resetBtn" class="btn btn-tactical-secondary">RESET SIM</button>
         </div>
     </footer>
 
+    <!-- Scripts -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script src="app.js"></script>
 </body>

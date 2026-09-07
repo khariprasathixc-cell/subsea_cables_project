@@ -1,14 +1,24 @@
 [
   {
     "ship_id": "S5",
-    "timestamp": 16,
+    "timestamp": 14,
     "message": "Possible anchor drag detected: speed dropped below 5 knots inside cable corridor",
-    "confidence_score": 61.6
+    "confidence_score": 45.9,
+    "physical_confirmation": false,
+    "status": "SUSPECTED - AIS ONLY",
+    "frequency_hz": null,
+    "energy": null,
+    "last_updated": 1788803392.7987072
   },
   {
     "ship_id": "S6",
-    "timestamp": 16,
+    "timestamp": 14,
     "message": "Possible anchor drag detected: speed dropped below 5 knots inside cable corridor",
-    "confidence_score": 64.2
+    "confidence_score": 46.7,
+    "physical_confirmation": false,
+    "status": "SUSPECTED - AIS ONLY",
+    "frequency_hz": null,
+    "energy": null,
+    "last_updated": 1788803392.7987251
   }
 ]
