@@ -7,8 +7,13 @@ Integrates live acoustic DAS/piezo hardware confirmation signals.
 
 import os
 import sys
-import json
 import time
+import json
+
+if hasattr(sys.stdout, 'reconfigure'):
+    sys.stdout.reconfigure(encoding='utf-8', errors='replace')
+if hasattr(sys.stderr, 'reconfigure'):
+    sys.stderr.reconfigure(encoding='utf-8', errors='replace')
 
 # Ensure backend directory is in sys.path
 BACKEND_DIR = os.path.dirname(os.path.abspath(__file__))

@@ -14,6 +14,11 @@ import signal
 import subprocess
 import webbrowser
 
+if hasattr(sys.stdout, 'reconfigure'):
+    sys.stdout.reconfigure(encoding='utf-8', errors='replace')
+if hasattr(sys.stderr, 'reconfigure'):
+    sys.stderr.reconfigure(encoding='utf-8', errors='replace')
+
 ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
 HTTP_PORT = 8000
 FRONTEND_URL = f"http://localhost:{HTTP_PORT}/frontend/"

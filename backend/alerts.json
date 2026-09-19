@@ -8,7 +8,7 @@
     "status": "SUSPECTED - AIS ONLY",
     "frequency_hz": null,
     "energy": null,
-    "last_updated": 1788803392.7987072
+    "last_updated": 1789830011.0537488
   },
   {
     "ship_id": "S6",
@@ -19,6 +19,6 @@
     "status": "SUSPECTED - AIS ONLY",
     "frequency_hz": null,
     "energy": null,
-    "last_updated": 1788803392.7987251
+    "last_updated": 1789830011.0537796
   }
 ]
